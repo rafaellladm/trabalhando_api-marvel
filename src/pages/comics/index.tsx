@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 
-import { Container, CardList, Card, ButtonMore } from './styles';
+import { Header, Container, CardList, Card, ButtonMore } from './styles';
 
 interface ResponseData {
   id: string;
@@ -17,7 +17,7 @@ const Comics: React.FC = () => {
   const [comics, setCharacters] = useState<ResponseData[]>([]);
   useEffect(() => {
     api
-      .get('/comics')
+      .get('/comics/{}')
       .then(response => {
         setCharacters(response.data.data.results);
       })
@@ -41,6 +41,18 @@ const Comics: React.FC = () => {
 
   return (
     <Container>
+      <Header>
+        <div>
+          <img
+            src="https://ik.imagekit.io/rafaelluz/Marvel_Comics-logo-D489AEB9C1-seeklogo.com_fCfZMPpyX3.png"
+            alt=""
+          />
+        </div>
+        <div className="search">
+          <input type="text" />
+          <button type="button">Pesquisa</button>
+        </div>
+      </Header>
       <CardList>
         {comics.map(comic => {
           return (
@@ -54,7 +66,9 @@ const Comics: React.FC = () => {
           );
         })}
       </CardList>
-      <ButtonMore onClick={handleMore}>Mais</ButtonMore>
+      <ButtonMore onClick={handleMore}>
+        <h3>Mais</h3>
+      </ButtonMore>
     </Container>
   );
 };

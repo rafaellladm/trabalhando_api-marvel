@@ -79,14 +79,46 @@ export const Card = styled.div`
   }
 `;
 
+export const Header = styled.div`
+  background-color: #b80300;
+  width: 100%;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  div {
+    display: flex;
+    justify-content: center;
+  }
+
+  div img {
+    height: 50px;
+  }
+
+  button {
+    margin-left: 20px;
+    border-radius: 8px;
+    padding: 2px 6px;
+    background-color: #0077b6;
+    font-weight: 700;
+    font-size: 15px;
+  }
+`;
+
 export const ButtonMore = styled.div`
-  background-color: #ffffff;
+  background-color: #b84000;
   height: 30px;
-  width: 20%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
 
   cursor: pointer;
   box-shadow: 2px 2px 10px 1px rgba(255, 0, 0, 0.3);
   margin: 10px auto;
   text-align: center;
-  padding: 4px;
+  /* padding: 4px; */
+  font-weight: 700;
+  font-size: 18px;
+  color: #2c23a3;
 `;
